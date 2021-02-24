@@ -1,0 +1,38 @@
+<div class="wrapper">
+
+  <div class="side-bar">
+    <%= render "categories/side_bar" %>
+  </div>
+
+  <div class="page-header">
+  <div class="header-title">
+      <%= @bank.name %>
+  </div>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+</div>
+
+
+  <div class="content">
+    <div class="category_detail">
+      <% @categories.each do |category| %>
+          <div class="group">
+              <%= category.subject %>
+              <%=form_with model: @category, local: true do |f|%>
+              <div class='category-form__field'>
+                <div class='category-form__field--right'>
+                  <%= f.text_field :number, class: 'category-form__input' %>
+                  <%= f.submit "登録" ,class: 'category-form__action-btn'%>
+                </div>
+              </div>
+              <% end %>
+          </div>
+      <% end %>
+    </div>
+    <div class="test">
+      <%= @content.detail %>
+      <%= "@content.detail" %>
+    </div>
+  </div>

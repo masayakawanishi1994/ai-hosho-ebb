@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      user:
+    
+    attributes:
+      user:
+        authentication_key: "認証キー"
+        
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"

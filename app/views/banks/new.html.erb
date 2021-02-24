@@ -1,0 +1,17 @@
+<div class='bank-form'>
+  <h1>金融機関の追加</h1>
+  <%=form_with model: @bank, local: true do |f|%>
+    <div class='bank-form__field'>
+      <div class='bank-form__field--left'>
+        <%= f.label :金融機関名, class: 'bank-form__label'%>
+      </div>
+      <div class='bank-form__field--right'>
+        <%= f.text_field :name, class: 'bank-form__input', placeholder: '○○銀行など'%>
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :subject  %>
+      </div>
+    </div>
+    <div class='bank-form__field--center'>
+      <%= f.submit "作成" ,class: 'bank-form__action-btn'%>
+    </div>
+  <% end %>
+</div>

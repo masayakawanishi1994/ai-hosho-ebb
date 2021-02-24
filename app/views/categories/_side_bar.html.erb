@@ -1,0 +1,45 @@
+<header>
+  <div id="nav-drawer">
+  <input id="nav-input" type="checkbox" class="nav-unshown">
+    <label id="nav-open" for="nav-input"><span></span></label>
+    <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+    <div id="nav-content">
+      <div class="side-bar-header">
+        <div class="header-name">
+          <%= link_to current_user.name, edit_user_path(current_user) %>
+        </div>
+        <div class="sign-out">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </div>
+      </div>
+
+      <div class="finances">
+        <div class="create-finance">
+          <%= link_to "出向先追加", new_bank_path %>
+        </div>
+        <% @banks.each do |bank| %>
+          <div class="group">
+            <div class="group-name">
+              <%# <%= link_to bank.name, edit_bank_path(bank) %>  
+              <%= link_to bank.name, bank_contents_path(bank) %>
+              <%# <%= link_to bank.name, edit_bank_content_path(bank) %> 
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="groups">
+        <div class="create-group">
+          <%= link_to "カテゴリー作成", new_category_path %>
+        </div>
+        <% @categories.each do |category| %>
+          <div class="group">
+            <div class="group-name">
+              <%= category.subject %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>

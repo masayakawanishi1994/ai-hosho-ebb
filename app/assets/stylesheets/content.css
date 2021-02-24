@@ -1,0 +1,51 @@
+/* 金融機関情報登録ページ */
+
+.wrapper {
+  display: flex;
+}
+
+.side-bar{
+  background-color: rgb(165, 69, 69);
+  height: 100px;
+} 
+
+
+.side-bar-header {
+  height: 100px;
+  padding: 0 20px;
+  background-color: #f1ae7e;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+
+/* ↓カテゴリーの羅列 */
+.content {
+  background-color: white;
+  height: 100vh;
+  padding: 46px 40px 0;
+  overflow: scroll;
+  display:flex;
+  justify-content: center;
+}
+.category_detail{
+  width: auto;
+  background-color: wheat;
+  color: black;
+}
+.group{
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+}
+/* 以下要編集 */
+.content_detail{
+  width: auto;
+  background-color: black;
+  color: white;
+}
+
+.test{
+  color:red;
+}

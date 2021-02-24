@@ -1,0 +1,19 @@
+<div class='category-form'>
+  <h1>カテゴリーの追加</h1>
+  <%=form_with model: @category, local: true do |f|%>
+    <div class='category-form__field'>
+      <div class='category-form__field--left'>
+        <%= f.label :カテゴリー, class: 'category-form__label'%>
+      </div>
+      <div class='category-form__field--right'>
+        <%= f.text_field :subject, class: 'category-form__input', placeholder: '残高、商品名など'%>
+      </div>
+      <div class='category-form__field--right'>
+        <%= f.number_field :number, class: 'category-form__input', placeholder: '並び替えの指標数値'%>
+      </div>
+    </div>
+    <div class='category-form__field--center'>
+      <%= f.submit "作成" ,class: 'category-form__action-btn'%>
+    </div>
+  <% end %>
+</div>

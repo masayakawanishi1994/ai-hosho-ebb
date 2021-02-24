@@ -1,0 +1,27 @@
+<div class="page-header">
+  <div class="header-title">
+      <b>保証事業本部掲示板</b>
+  </div>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+</div>
+
+<div class="home">
+  <div class="upper-home">
+    <div class="home-user">
+      <!-- 投稿したユーザー名情報を出力する -->
+      <%# <%= @content.user.name %> %>
+    </div>
+    <div class="home-date">
+      <!-- 投稿した時刻を出力する -->
+      <%# <%= content.created_at %> %>
+    </div>
+  </div>
+  <div class="lower-home">
+    <div class="home-content">
+      <!-- 投稿したメッセージ内容を記述する -->
+      <%# <%= content.detail %> %>
+    </div>
+  </div>
+</div>

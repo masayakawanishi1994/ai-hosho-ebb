@@ -1,0 +1,364 @@
+header {
+  padding:10px;
+}
+
+#nav-drawer {
+  position: relative;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display:none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+  vertical-align: middle;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+  position: absolute;
+  height: 3px;/*線の太さ*/
+  width: 25px;/*長さ*/
+  border-radius: 3px;
+  background: white;
+  display: block;
+  content: '';
+  cursor: pointer;
+}
+#nav-open span:before {
+  bottom: -8px;
+}
+#nav-open span:after {
+  bottom: -16px;
+}
+
+/*閉じる用の薄黒カバー*/
+#nav-close {
+  display: none;/*はじめは隠しておく*/
+  position: fixed;
+  z-index: 99;
+  top: 0;/*全体に広がるように*/
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: .3s ease-in-out;
+}
+
+/*中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;/*最前面に*/
+  width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
+  max-width: 330px;/*最大幅（調整してください）*/
+  height: 100%;
+  background: #fff;/*背景色*/
+  transition: .3s ease-in-out;/*滑らかに表示*/
+  -webkit-transform: translateX(-105%);
+  transform: translateX(-105%);/*左に隠しておく*/
+}
+
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+  display: block;/*カバーを表示*/
+  opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);/*中身を表示（右へスライド）*/
+  box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+
+
+
+.wrapper {
+  display: flex;
+}
+
+.side-bar{
+  background-color: rgb(165, 69, 69);
+  height: 100px;
+} 
+
+
+.side-bar-header {
+  height: 100px;
+  padding: 0 20px;
+  background-color: #f1ae7e;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.sign-out a{
+  font-size: 16px;
+  color:black;
+  text-decoration: none;
+  padding: 0.2em 0.5em;
+    /* margin: 1em 0; */
+    background: #f4f4f4;
+    border-left: solid 6px #5bb7ae;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+
+.header-name a{
+  text-decoration: none;
+  font-size: 16px;
+  color:black;
+  padding: 0.2em 0.5em;
+    /* margin: 1em 0; */
+    background: #f4f4f4;
+    border-left: solid 6px blue;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+
+.create-group a {
+  text-decoration: none;
+  font-size: 16px;
+  color:black;
+  padding: 0.2em 0.5em;
+    /* margin: 1em 0; */
+    background: #f4f4f4;
+    border-left: solid 6px orange;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+
+.groups {
+  background-color: #e6dfda;
+  height: 50vh;
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+.group {
+  padding: auto 0 ;
+}
+
+.group-name a {
+  text-decoration: none;
+  color: black;
+}
+
+.create-finance a {
+  text-decoration: none;
+  font-size: 16px;
+  color:black;
+  padding: 0.2em 0.5em;
+    /* margin: 1em 0; */
+    background: #f4f4f4;
+    border-left: solid 6px red;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+
+.finances {
+  background-color: yellowgreen;
+  height: 50vh;
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+.finance {
+  padding: 20px 0 40px;
+}
+
+.finance-name a {
+  text-decoration: none;
+  color: white;
+}
+/* 元はbank */
+.page {
+  
+  width: 100vw;
+}
+
+.page-header {
+  height: 100px;
+  width:100vw;
+  background-color: rgb(165, 69, 69);
+}
+
+.header-title {
+  color: white;
+  padding-top: 15px;
+  font-size: 40px;
+  text-align: center;
+  font-family: serif;
+}
+
+p{
+  color:white;
+  text-align: center;
+  font-size: 13px;
+  -moz-animation: cssAnimation 0s ease-in 3s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 0s ease-in 3s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 0s ease-in 3s forwards;
+  /* Opera */
+  animation: cssAnimation 0s ease-in 3s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+.homes {
+  background-color: white;
+  height: 100vh;
+  padding: 46px 40px 0;
+  overflow: scroll;
+  display:flex;
+  justify-content: center;
+}
+
+.home {
+  display:flex;
+  width: auto;
+  border: 1px solid lightblue;
+  font-size: 16px;
+  margin:20px auto;
+}
+
+.home li{
+  border: 1px solid lightblue;
+}
+
+.home-user {
+  color: black;
+  border: 1px solid red;
+}
+
+.home-content {
+  color:black;
+  border: 1px solid black;
+}
+
+.home-date {
+  color: #999;
+  border: 1px solid blueviolet;
+}
+
+/* 新規カテゴリー作成ページ */
+
+h1 {
+  text-shadow: 1px 1px 2px silver;
+  letter-spacing: 2px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.category-form {
+  height: 30vh;
+  margin:10% 10%;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
+.category-form:before, .category-form:after{
+  content: '';
+  position: absolute;
+  top: -10px;
+  width: 2px;
+  height: -webkit-calc(100% + 20px);
+  height: calc(100% + 20px);
+  background-color: black;
+}
+.category-form:before {left: 10px;}
+.category-form:after {right: 10px;}
+
+
+.category-form__errors {
+  margin: 30px 0;
+  padding: 20px 40px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  text-align: center;
+}
+.category-form__label {
+  display: block;
+  line-height: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+.category-form__input {
+  float: left;
+  width: 100%;
+  line-height: 30px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
+.category-form__action-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 20%;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: white;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+.category-form__action-btn:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+
+.category-form__field--center {
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.category-form__field{
+  margin-top: 20px;
+}
+
+.category-form__field:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.category-form__field--left {
+  float: left;
+  width: 20%;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.category-form__field--right {
+  float: left;
+  margin:0 20px;
+  width:70%;
+}
+
+.field_with_errors {
+  display: contents;
+}
