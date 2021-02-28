@@ -7,7 +7,9 @@
       </div>
       <div class='bank-form__field--right'>
         <%= f.text_field :name, class: 'bank-form__input', placeholder: '○○銀行など'%>
-        <%= f.collection_check_boxes :category_ids, Category.all, :id, :subject  %>
+        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :subject) do |b| %>
+          <% b.label(class: "check_box") { b.check_box(checked: true, class: "add_margin") + b.text } %>
+        <% end %>
       </div>
     </div>
     <div class='bank-form__field--center'>
@@ -15,3 +17,4 @@
     </div>
   <% end %>
 </div>
+

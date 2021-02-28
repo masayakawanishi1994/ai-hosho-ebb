@@ -14,25 +14,22 @@
   </div>
 </div>
 
-
   <div class="content">
     <div class="category_detail">
       <% @categories.each do |category| %>
           <div class="group">
-              <%= category.subject %>
-              <%=form_with model: @category, local: true do |f|%>
-              <div class='category-form__field'>
-                <div class='category-form__field--right'>
-                  <%= f.text_field :number, class: 'category-form__input' %>
-                  <%= f.submit "登録" ,class: 'category-form__action-btn'%>
-                </div>
-              </div>
-              <% end %>
+
+              <%= link_to category.subject, edit_bank_content_path(category) %>
+              
+              <%# <%= form_with model: @content, local: true do |f|%> %>
+                <%# <div class='category-form__field'> %>
+                  <%# <div class='category-form__field--right'> %>
+                    <%# <%= f.text_field :detail, class: 'category-form__input' %> %>
+                    <%# <%= f.submit "登録" ,class: 'category-form__action-btn'%> %>
+                  <%# </div> %>
+                <%# </div> %>
+              <%# <% end %> %>
           </div>
       <% end %>
-    </div>
-    <div class="test">
-      <%= @content.detail %>
-      <%= "@content.detail" %>
     </div>
   </div>

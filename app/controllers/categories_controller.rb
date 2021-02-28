@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
   def index
     @banks = Bank.all
-    @categories = Category.all
+    @categories = Category.select("subject")
+
   end
 
   def new

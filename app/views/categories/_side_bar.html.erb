@@ -19,10 +19,8 @@
         </div>
         <% @banks.each do |bank| %>
           <div class="group">
-            <div class="group-name">
-              <%# <%= link_to bank.name, edit_bank_path(bank) %>  
+            <div class="group-name">  
               <%= link_to bank.name, bank_contents_path(bank) %>
-              <%# <%= link_to bank.name, edit_bank_content_path(bank) %> 
             </div>
           </div>
         <% end %>

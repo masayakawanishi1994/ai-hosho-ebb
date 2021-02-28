@@ -15,10 +15,12 @@ ActiveRecord::Schema.define(version: 2021_02_07_221506) do
   create_table "bank_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "bank_id"
     t.bigint "category_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bank_id"], name: "index_bank_categories_on_bank_id"
     t.index ["category_id"], name: "index_bank_categories_on_category_id"
+    t.index ["user_id"], name: "index_bank_categories_on_user_id"
   end
 
   create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -38,10 +40,12 @@ ActiveRecord::Schema.define(version: 2021_02_07_221506) do
     t.string "detail", null: false
     t.bigint "bank_id"
     t.bigint "category_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bank_id"], name: "index_contents_on_bank_id"
     t.index ["category_id"], name: "index_contents_on_category_id"
+    t.index ["user_id"], name: "index_contents_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,6 +65,8 @@ ActiveRecord::Schema.define(version: 2021_02_07_221506) do
 
   add_foreign_key "bank_categories", "banks"
   add_foreign_key "bank_categories", "categories"
+  add_foreign_key "bank_categories", "users"
   add_foreign_key "contents", "banks"
   add_foreign_key "contents", "categories"
+  add_foreign_key "contents", "users"
 end
