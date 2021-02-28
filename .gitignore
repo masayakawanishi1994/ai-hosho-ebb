@@ -29,3 +29,10 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
+app/channels/.DS_Store
+app/controllers/.DS_Store
+.DS_Store
+.gitignore
