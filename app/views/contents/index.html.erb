@@ -18,9 +18,8 @@
     <div class="category_detail">
       <% @categories.each do |category| %>
           <div class="group">
-
-              <%= link_to category.subject, edit_bank_content_path(category) %>
-              
+          link_to "詳細", blog_path(blog.id)
+              <%= link_to category.subject, edit_bank_content_path(category.id) %>
               <%# <%= form_with model: @content, local: true do |f|%> %>
                 <%# <div class='category-form__field'> %>
                   <%# <div class='category-form__field--right'> %>

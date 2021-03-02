@@ -24,8 +24,10 @@ class ContentsController < ApplicationController
     @content =Content.new
     @bank = Bank.find(params[:bank_id])
     @contents = @bank.contents
+    @content = Content
     @categories = Category.select("subject")
     @banks = Bank.all 
+    
   end
 
   def create
