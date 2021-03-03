@@ -1,38 +1,23 @@
 class ContentsController < ApplicationController
 # カテゴリーに応じたデータの保存の実装（⇨Formも）
-  def edit
-    @category = Category.find(params[:id])
-    @bank = Bank.find(params[:id])
-    @content = Content.find(params[:id])
-  end
 
-  def update
-    @content = Content.find(params[:id])
-      if @content.update(content_params)
-        redirect_to content_path
-      else
-        @content = Content.find(params[:id])
-        render :edit
-      end
+  def new
+    @content = Content.new
   end
-
-  # def new
-    # @content = Content.new
-  # end
 
   def index
+    @banks = Bank.all
+    @categories = Category.all
     @content =Content.new
     @bank = Bank.find(params[:bank_id])
-    @contents = @bank.contents
-    @content = Content
-    @categories = Category.select("subject")
-    @banks = Bank.all 
-    
+    @category = @bank.categories.find(params[:category_id])
+    # @contents = @category.contents
   end
 
   def create
     @bank = Bank.find(params[:bank_id])
-    @content = @bank.contents.new(content_params)
+    @category = @bank.categories
+    @content = @category.contents.new(content_params)
     if @content.save
       redirect_to bank_contents_path(@bank)
     else
@@ -44,6 +29,6 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:detail).merge(category_id: category.id)
+    params.require(:content).permit(:detail).merge(user_id: current_user.id)
   end
 end

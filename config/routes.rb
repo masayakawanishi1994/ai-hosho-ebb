@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :categories, only: [:new, :create]
   resources :banks, only: [:new, :create, :destroy, :edit, :update] do
-    resources :contents, only: [:edit, :update, :new, :index, :create]
+    resources :contents, only: [:index, :create, :new]
+  end
+
+  resources :banks, only: [:new, :create, :destroy, :edit, :update] do
+    resources :categories, only: [:new, :create] do
+      resources :contents, only: [:index, :create, :new]
+    end
   end
 end

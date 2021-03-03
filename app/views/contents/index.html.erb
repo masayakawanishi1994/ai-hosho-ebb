@@ -18,16 +18,16 @@
     <div class="category_detail">
       <% @categories.each do |category| %>
           <div class="group">
-          link_to "詳細", blog_path(blog.id)
-              <%= link_to category.subject, edit_bank_content_path(category.id) %>
-              <%# <%= form_with model: @content, local: true do |f|%> %>
-                <%# <div class='category-form__field'> %>
-                  <%# <div class='category-form__field--right'> %>
-                    <%# <%= f.text_field :detail, class: 'category-form__input' %> %>
-                    <%# <%= f.submit "登録" ,class: 'category-form__action-btn'%> %>
-                  <%# </div> %>
-                <%# </div> %>
-              <%# <% end %> %>
+            <%= category.subject %>
+              <%= link_to category.subject, new_bank_category_content_path %>
+              <%= form_with model: @content, local: true do |f| %>
+                <div class='category-form__field'>
+                  <div class='category-form__field--right'>
+                    <%= f.text_field :detail, class: 'category-form__input' %>
+                    <%= f.submit "登録" ,class: 'category-form__action-btn' %>
+                  </div>
+                </div>
+              <% end %>
           </div>
       <% end %>
     </div>
