@@ -46,6 +46,13 @@
   color: white;
 }
 
-.test{
-  color:red;
+.form-input{
+  display:flex;
 }
+.form-message{
+  display:flex;
+}
+
+.form-submit{
+  display:flex;
+} 
