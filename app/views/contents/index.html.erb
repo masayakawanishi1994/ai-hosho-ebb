@@ -16,18 +16,28 @@
 
   <div class="content">
     <div class="category_detail">
-      <% @categories.each do |category| %>
+      <% @bank.categories.each do |category| %>
           <div class="group">
-            <%= category.subject %>
-            <%= form_with model: [@bank, @content], class: 'form', local: true do |f| %>
-              <div class="form-input">
-                 <%= f.text_field :detail, class: 'form-message', placeholder: '最新情報を登録' %>
-                <%= f.submit '登録', class: 'form-submit' %>
-              </div>
-            <% end %>
+            <%=link_to category.subject,new_bank_category_content_path(@bank.id ,category.id) %>
+            <%= @content.detail %>
           </div>
       <% end %>
     </div>
   </div>
 
-  
+<%# メモ %>
+  <%# <div class="content">
+    <div class="category_detail">
+      <% @bank.categories.each do |category| %>
+          <%# <div class="group">
+            <%= category.subject %>
+            <%# <%= form_with model: [@bank, @content], class: 'form', local: true do |f| %>
+              <%# <div class="form-input"> %>
+                 <%# <%= f.text_field :detail, class: 'form-message', placeholder: '最新情報を登録' %>
+                <%# <%= f.submit '登録', class: 'form-submit' %>
+              <%# </div> %>
+            <%# <% end %>
+          <%# </div> %>
+      <%# <% end %> 
+    <%# </div> %>
+  <%# </div> %>

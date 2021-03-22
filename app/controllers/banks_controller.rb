@@ -33,7 +33,6 @@ class BanksController < ApplicationController
   end
 
   private
-
   def bank_params
     params.require(:bank).permit(:name,category_ids:[])
   end

@@ -11,8 +11,7 @@
 | authentication_key | string | null: false |
 
 ### Association
-has_many: category_users
-has_many: categories, through: category_users
+has_many: contents
 
 ## banks テーブル
 
@@ -23,36 +22,39 @@ has_many: categories, through: category_users
 ### Association
 has_many: bank_categories
 has_many: categories, through:bank_categories
+has_many :contents
 
 ## categories テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| subject  | string | null: false |
-| content  | string | null: false |
+| Column   | Type         | Options     |
+| -------- | ------------ | ----------- |
+| subject  | string       | null: false |
+| number   | numericality | null: false |
 
 ### Association
+has_many :bank_categories
+has_many :banks, through: :bank_categories
+has_many :contents
 
-has_many: bank_categories
-has_many: banks
-has_many: users
-
-## category_users テーブル
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| user     | references | null: false, foreign_key: true |
-| category | references | null: false, foreign_key: true |
+## bank_categories テーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| bank_id     | references | null: false, foreign_key: true |
+| category_id | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :category
-belongs_to :user
+belongs_to :bank
 
-## category_bankings テーブル
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| banking  | references | null: false, foreign_key: true |
-| category | references | null: false, foreign_key: true |
+## contents テーブル
+| Column      | Type       | Options     |
+| ----------- | ---------- | ----------- |
+| detail      | string     | null: false |
+| bank_id     | references | null: false |
+| category_id | references | null: false |
+| user_id     | references | null: false |
 
 ### Association
 belongs_to :category
 belongs_to :banking
+belongs_to :user

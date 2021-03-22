@@ -1,4 +1,8 @@
 /* 金融機関情報登録ページ */
+#flash_alert{
+  text-align: center;
+  color:red;
+}
 
 .wrapper {
   display: flex;
