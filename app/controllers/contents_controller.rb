@@ -1,20 +1,29 @@
 class ContentsController < ApplicationController
-# カテゴリーに応じたデータの保存の実装（⇨Formも）
 
   def index
     @banks = Bank.all #サイドバーに必要（共通）
     @content =Content.new
-    @bank = Bank.find(params[:bank_id])
-    @contents = @bank.contents
-    @categories = @bank.categories.select(:subject)
+    @bank = Bank.find(params[:bank_id])#一覧表示に必要（共通）
+    logger.debug(@test.inspect)
+    @categories = @bank.categories.select(:subject)#一覧表示に必要（共通）
   end
 
   def new
     @content = Content.new
     @banks = Bank.all #サイドバーに必要（共通）
-    @bank = Bank.find(params[:bank_id])
-    @categories = @bank.categories.select(:subject)
-    @category = Category.find(params[:category_id]) 
+    @bank = Bank.find(params[:bank_id])#一覧表示に必要（共通）
+    @categories = @bank.categories.select(:subject)#一覧表示に必要（共通）
+    @category = Category.find(params[:category_id])#登録・編集画面に必要
+  end
+
+  def confirm
+    @category = Category.find(params[:category_id])#登録・編集画面に必要
+    @content = Content.new(content_params)
+    render :new if @content.invalid?
+  end
+
+  def back
+    render :new
   end
 
   def create
@@ -26,6 +35,25 @@ class ContentsController < ApplicationController
     else
       @contents = @bank.contents.includes(:category)
       redirect_to bank_contents_path(@bank),notice: "登録に失敗しました。"
+    end
+  end
+
+  def edit
+    @banks = Bank.all #サイドバーに必要（共通）
+    @bank = Bank.find(params[:bank_id])#一覧表示に必要（共通）
+    @categories = @bank.categories.select(:subject)#一覧表示に必要（共通）
+    @category = Category.find(params[:category_id])#登録・編集画面に必要
+    @content = Content.find(params[:id])
+  end
+
+  def update
+    @bank = Bank.find(params[:bank_id])#一覧表示に必要（共通）
+    @content = Content.find(params[:id])
+    if @content.update(content_params)
+      redirect_to bank_contents_path(@bank),notice: "修正しました。"
+    else
+      @contents = @bank.contents.includes(:category)
+      redirect_to bank_contents_path(@bank),notice: "修正に失敗しました。"
     end
   end
 

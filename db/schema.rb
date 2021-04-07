@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2021_02_07_221506) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["bank_id"], name: "index_contents_on_bank_id"
-    t.index ["category_id"], name: "index_contents_on_category_id"
-    t.index ["user_id"], name: "index_contents_on_user_id"
+    t.index ["bank_id", "category_id"], name: "index_contents_on_bank_id_and_category_id", unique: true
+    t.index ["category_id"], name: "fk_rails_d914bbe5f3"
+    t.index ["user_id"], name: "fk_rails_854287fee7"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

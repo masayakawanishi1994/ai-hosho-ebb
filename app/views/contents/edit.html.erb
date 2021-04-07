@@ -17,10 +17,10 @@
   <div class="content">
     <div class="category_detail">
           <div class="group">
-            <%= @category.subject %>
-            <%= form_with model: @content, method: :post, url: confirm_bank_category_contents_path, class: 'form', local: true do |f| %>
+            <%= @category.subject %>  
+            <%= form_with model: @content, url: bank_category_content_path, class: 'form', local: true do |f| %>
               <div class="form-input"> 
-                <%= f.text_field :detail, class: 'form-message', placeholder: '最新情報を登録' %>
+                <%= f.text_field :detail, class: 'form-message', autofocus: true %>
                 <%= f.submit '登録', class: 'form-submit' %>
               </div> 
             <% end %>
