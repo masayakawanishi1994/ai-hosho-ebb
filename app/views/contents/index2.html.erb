@@ -1,0 +1,64 @@
+<div class="wrapper">
+
+  <div class="side-bar">
+    <%= render "categories/side_bar" %>
+  </div>
+
+  <div class="conainer">
+  <div class="header-title ">
+      <%= @category_at.subject %>
+  </div>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="data">
+  <div class="data-display">
+    <div class="category_detail">
+    <div class="group bg-info text-white">
+          金融機関名
+      </div>
+      <% @category_at.banks.each do |bank| %>
+          <div class="group text-dark">
+            <%=bank.name %>
+          </div>
+      <% end %>
+    </div>
+    <div class="content_detail">
+      <% @category_at.contents.each do |content| %>
+          <div class="group text-dark">
+            <%= content.detail %>
+          </div>
+      <% end %>
+    </div>
+    <div class="content_user">
+      <% @category_at.contents.each do |content| %>
+          <div class="group text-dark">
+            <%= content.user.name %>
+          </div>
+      <% end %>
+    </div>
+    <div class="content_time">
+      <% @category_at.contents.each do |content| %>
+          <div class="group text-dark">
+            <%= l content.updated_at, format: :short %>
+          </div>
+      <% end %>
+    </div>
+    <div class="category_new">
+      <% @category_at.banks.each do |bank| %>
+          <div class="group text-dark">
+            <%=link_to("登録", new_category_bank_content_path(@category_at.id ,bank.id),{class: "btn-sticky"}) %>
+          </div>
+      <% end %>
+    </div>
+    <div class="category_edit">
+      <% @category_at.contents.each do |content| %>
+          <div class="group text-dark">
+            <%=link_to("編集", edit_bank_category_content_path(content.bank_id, content.category_id, content.id),{class: "btn-sticky2"}) %>
+          </div>
+      <% end %>
+    </div>
+</div>

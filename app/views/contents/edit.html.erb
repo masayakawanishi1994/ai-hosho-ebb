@@ -4,7 +4,7 @@
     <%= render "categories/side_bar" %>
   </div>
 
-  <div class="page-header">
+  <div class="conainer">
   <div class="header-title">
       <%= @bank.name %>
   </div>
@@ -16,12 +16,12 @@
 
   <div class="content">
     <div class="category_detail">
-          <div class="group">
-            <%= @category.subject %>  
+          <div class="group text-dark">
+            <%= @category_at.subject %>  
             <%= form_with model: @content, url: bank_category_content_path, class: 'form', local: true do |f| %>
-              <div class="form-input"> 
+              <div class="form-input text-dark"> 
                 <%= f.text_field :detail, class: 'form-message', autofocus: true %>
-                <%= f.submit '登録', class: 'form-submit' %>
+                <%= f.submit '登録', class: 'form-submit', data:{ confirm: "内容に間違いはありませんか？", cancel: "やめる", commit: '登録', title: 'Check'} %>
               </div> 
             <% end %>
           </div>

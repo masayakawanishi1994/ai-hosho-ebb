@@ -1,5 +1,5 @@
 <div class='category-form'>
-  <h1>カテゴリーの追加</h1>
+  <b>カテゴリーの追加</b>
   <%=form_with model: @category, local: true do |f|%>
     <div class='category-form__field'>
       <div class='category-form__field--left'>
@@ -11,9 +11,17 @@
       <div class='category-form__field--right'>
         <%= f.number_field :number, class: 'category-form__input', placeholder: '並び替えの指標数値'%>
       </div>
+      <div class='category-form__field--right'>
+        <%= f.collection_check_boxes(:bank_ids, Bank.all, :id, :name) do |b| %>
+          <% b.label(class: "check_box") { b.check_box(checked: true, class: "add_margin") + b.text } %>
+        <% end %>
+      </div>
     </div>
     <div class='category-form__field--center'>
-      <%= f.submit "作成" ,class: 'category-form__action-btn'%>
+      <%= f.submit "作成" ,class: 'category-form__action-btn' ,data:{ confirm: "内容に間違いはありませんか？"} %>
     </div>
   <% end %>
+  <div class = "back_one">
+    <%= link_to "ホームへ", root_path, class: 'btn'%>
+  </div>
 </div>

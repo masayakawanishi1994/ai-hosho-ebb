@@ -1,46 +1,51 @@
 <header>
-  <div id="nav-drawer">
-  <input id="nav-input" type="checkbox" class="nav-unshown">
-    <label id="nav-open" for="nav-input"><span></span></label>
-    <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-    <div id="nav-content">
-      <div class="side-bar-header">
-        <div class="header-name">
-          <%= link_to current_user.name, edit_user_path(current_user) %>
-        </div>
-        <div class="sign-out">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </div>
-        <div class = "back">
-          <%= link_to "ホームへ", root_path, class: 'btn'%>
-        </div>
-      </div>
-
-      <div class="finances">
-        <div class="create-finance">
-          <%= link_to "出向先追加", new_bank_path %>
-        </div>
-        <% @banks.each do |bank| %>
-          <div class="group">
-            <div class="group-name">  
-              <%= link_to bank.name, bank_contents_path(bank) %>
-            </div>
+  <div class="side">
+    <div id="nav-drawer">
+    <input id="nav-input" type="checkbox" class="nav-unshown">
+      <label id="nav-open" for="nav-input"><span></span></label>
+      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+      <div id="nav-content">
+        <div class="side-bar-header">
+          <div class="header-name">
+            <%= link_to current_user.name, edit_user_path(current_user) %>
           </div>
-        <% end %>
-      </div>
-
-      <div class="groups">
-        <div class="create-group">
-          <%= link_to "カテゴリー作成", new_category_path %>
-        </div>
-        <% @categories.each do |category| %>
-          <div class="group">
-            <div class="group-name">
-              <%= category.subject %>
-            </div>
+          <div class="sign-out text-dark">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </div>
-        <% end %>
+          <div class = "back text-dark">
+            <%= link_to "ホームへ", root_path, class: 'btn'%>
+          </div>
+        </div>
+
+        <div class="finances">
+          <div class="create-finance text-dark">
+            <%= link_to "出向先追加", new_bank_path %>
+          </div>
+          <% @banks.each do |bank| %>
+            <div class="group">
+              <div class="group-name text-dark">  
+                <%= link_to bank.name, bank_contents_path(bank) %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="groups">
+          <div class="create-group text-dark">
+            <%= link_to "カテゴリー作成", new_category_path %>
+          </div>
+          <% @category.each do |category| %>
+            <div class="group">
+              <div class="group-name text-dark">
+                <%= link_to category.subject, category_contents_index2_path(category) %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </header>
+<div class = "data1">
+
+</div>

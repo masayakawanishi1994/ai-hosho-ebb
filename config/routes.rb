@@ -4,22 +4,20 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :categories, only: [:new, :create]
   resources :banks, only: [:new, :create, :destroy, :edit, :update] do
-    resources :contents, only: [:index, :create, :new, :edit, :update] do
-      collection do
-      post :confirm, as: :new, action: :back
-      get :confirm
-      end
-    end
+    resources :contents, only: [:index, :create, :new, :edit, :update, :show]
   end
-
   resources :banks, only: [:new, :create, :destroy, :edit, :update] do
     resources :categories, only: [:new, :create] do
-      resources :contents, only: [:index, :create, :new, :edit, :update] do
-        collection do
-        post :confirm
-        get :confirm
-        end
-      end
+      resources :contents, only: [:index, :create, :new, :edit, :update]
+    end
+  end
+  resources :categories, only: [:new, :create] do
+      resources :contents, only: [:index, :create, :new, :edit, :update]
+      get 'contents/index2' => 'contents#index2'
+  end
+  resources :categories, only: [:new, :create] do
+    resources :banks, only: [:new, :create, :destroy, :edit, :update] do
+      resources :contents, only: [:index, :create, :new, :edit, :update]
     end
   end
 end

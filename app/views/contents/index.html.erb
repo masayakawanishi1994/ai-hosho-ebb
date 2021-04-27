@@ -4,7 +4,7 @@
     <%= render "categories/side_bar" %>
   </div>
 
-  <div class="page-header">
+  <div class="conainer">
   <div class="header-title">
       <%= @bank.name %>
   </div>
@@ -17,44 +17,63 @@
 <div class="data">
   <div class="data-display">
     <div class="category_detail">
+      <div class="group bg-info text-white">
+          カテゴリー
+      </div>
       <% @bank.categories.each do |category| %>
-          <div class="group">
+          <div class="group text-dark">
             <%=category.subject %>
           </div>
       <% end %>
     </div>
     <div class="content_detail">
+      <div class="group bg-info text-white">
+          内容
+      </div>
       <% @bank.contents.each do |content| %>
-          <div class="group">
+          <div class="group text-dark">
             <%= content.detail %>
           </div>
       <% end %>
     </div>
     <div class="content_user">
+      <div class="group bg-info text-white">
+          担当者
+      </div>
       <% @bank.contents.each do |content| %>
-          <div class="group">
+          <div class="group text-dark">
             <%= content.user.name %>
           </div>
       <% end %>
     </div>
     <div class="content_time">
+      <div class="group bg-info text-white">
+          登録・編集日時
+      </div>
       <% @bank.contents.each do |content| %>
-          <div class="group">
+          <div class="group text-dark">
             <%= l content.updated_at, format: :short %>
           </div>
       <% end %>
     </div>
-    <div class="category_btn">
+    <div class="content_new">
+      <div class="group bg-info text-white">
+          登録
+      </div>
       <% @bank.categories.each do |category| %>
-          <div class="group">
-            <%=link_to("登録", new_bank_category_content_path(@bank.id ,category.id),{class: "btn-square-little-rich"}) %>
+          <div class="group text-dark">
+            <%=link_to("", new_bank_category_content_path(@bank.id ,category.id),{class: "fas fa-briefcase"}) %>
           </div>
       <% end %>
+      
     </div>
-    <div class="category_edit">
+    <div class="content_edit">
+      <div class="group bg-info text-white">
+          編集
+      </div>
       <% @bank.contents.each do |content| %>
-          <div class="group">
-            <%=link_to("編集", edit_bank_category_content_path(content.bank_id, content.category_id, content.id),{class: "btn-square-little-rich"}) %>
+          <div class="group text-dark">
+            <%=link_to("", edit_bank_category_content_path(content.bank_id, content.category_id, content.id),{class: "fas fa-brush"}) %>
           </div>
       <% end %>
     </div>

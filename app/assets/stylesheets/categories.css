@@ -83,10 +83,11 @@ header {
 
 .wrapper {
   display: flex;
+  background-color: #EEEEEE;
 }
 
 .side-bar{
-  background-color: rgb(165, 69, 69);
+  background-color: #770000;
   height: 100px;
 } 
 
@@ -94,7 +95,7 @@ header {
 .side-bar-header {
   height: 100px;
   padding: 0 20px;
-  background-color: #f1ae7e;
+  background-color: #EEEEEE	;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
@@ -102,44 +103,44 @@ header {
 
 .back a{
   font-size: 16px;
-  color:black;
+  color:#110000;
   text-decoration: none;
   padding: 0.2em 0.5em;
     /* margin: 1em 0; */
-    background: #f4f4f4;
+    background: #EEEEEE;
     border-left: solid 6px #d2d42f;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
 }
 
 .sign-out a{
   font-size: 16px;
-  color:black;
+  color:#110000;
   text-decoration: none;
   padding: 0.2em 0.5em;
     /* margin: 1em 0; */
-    background: #f4f4f4;
+    background: #EEEEEE;
     border-left: solid 6px #5bb7ae;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
 }
 
 .sign-in a{
   font-size: 16px;
-  color:black;
+  color:#110000;
   text-decoration: none;
   padding: 0.2em 0.5em;
     /* margin: 1em 0; */
-    background: #f4f4f4;
+    background: #EEEEEE;
     border-left: solid 6px yellow;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
 }
 
 .sign-up a{
   font-size: 16px;
-  color:black;
+  color:#110000;
   text-decoration: none;
   padding: 0.2em 0.5em;
     /* margin: 1em 0; */
-    background: #f4f4f4;
+    background: #EEEEEE;
     border-left: solid 6px yellowgreen;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
 }
@@ -147,10 +148,10 @@ header {
 .header-name a{
   text-decoration: none;
   font-size: 16px;
-  color:black;
+  color:#110000;
   padding: 0.2em 0.5em;
     /* margin: 1em 0; */
-    background: #f4f4f4;
+    background: #EEEEEE;
     border-left: solid 6px blue;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
 }
@@ -158,34 +159,53 @@ header {
 .create-group a {
   text-decoration: none;
   font-size: 16px;
-  color:black;
+  color:#110000;
   padding: 0.2em 0.5em;
     /* margin: 1em 0; */
-    background: #f4f4f4;
+    background: #EEEEEE;
     border-left: solid 6px orange;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
 }
 
+.side{
+  height: 80px;
+
+}
+
+.data{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
 .groups {
-  background-color: #e6dfda;
   height: 50vh;
   padding: 0 20px;
   overflow: scroll;
+  background-color: #EEEEEE	;
+
 }
 
 .group {
+  overflow: scroll;
   padding: auto 0 ;
+  background-color: #FFFFEE	;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px 0 rgba(.1, .1, .1, .1);
 }
 
 .group-name a {
   text-decoration: none;
-  color: black;
+  color: #110000;
+}
+.group-name{
+  background-color: #FFFFEE
 }
 
 .create-finance a {
   text-decoration: none;
   font-size: 16px;
-  color:black;
+  color: #110000;
   padding: 0.2em 0.5em;
     /* margin: 1em 0; */
     background: #f4f4f4;
@@ -194,7 +214,7 @@ header {
 }
 
 .finances {
-  background-color: yellowgreen;
+  background-color: #EEEEEE	;
   height: 50vh;
   padding: 0 20px;
   overflow: scroll;
@@ -206,7 +226,7 @@ header {
 
 .finance-name a {
   text-decoration: none;
-  color: white;
+  color: #110000;
 }
 /* 元はbank */
 .page {
@@ -214,16 +234,18 @@ header {
   width: 100vw;
 }
 
-.page-header {
+.conainer{
+  font-size: 40px;
   height: 100px;
   width:100vw;
-  background-color: rgb(165, 69, 69);
+  background-color: #770000;
 }
 
+
 .header-title {
+  background-color: #770000;
   color: white;
   padding-top: 15px;
-  font-size: 40px;
   text-align: center;
   font-family: serif;
 }
@@ -259,50 +281,54 @@ p{
     }
 }
 
-.homes {
-  background-color: white;
-  height: 100vh;
-  padding: 46px 40px 0;
-  overflow: scroll;
-  display:flex;
-  justify-content: center;
-}
 
 .home {
+  width: 90vw;
+  justify-content: center;
+  overflow: scroll;
+  background-color: #EEEEEE;
   display:flex;
-  width: auto;
-  border: 1px solid lightblue;
   font-size: 16px;
   margin:20px auto;
+  
 }
-
-.home li{
-  border: 1px solid lightblue;
+.subtitle{
+  height: 5vh;
+  background-color: #EEEEEE;
+  text-align: center;
+  font-size: 40px;
 }
-
-.home-user {
-  color: black;
-  border: 1px solid red;
+.home-bank{
+  
+  width: auto;
+  background-color: #FFFFEE	;
 }
-
-.home-content {
-  color:black;
-  border: 1px solid black;
+.home-category{
+  border-radius: 20px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
+  width: auto;
+  background-color: #FFFFEE	;
 }
-
-.home-date {
-  color: #999;
-  border: 1px solid blueviolet;
+.home-content{
+  border-radius: 20px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
+  width: auto;
+  background-color: #FFFFEE	;
+}
+.home-user{
+  border-radius: 20px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
+  width: auto;
+  background-color: #FFFFEE	;
+}
+.home-date{
+  border-radius: 20px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
+  width: auto;
+  background-color: #FFFFEE	;
 }
 
 /* 新規カテゴリー作成ページ */
-
-h1 {
-  text-shadow: 1px 1px 2px silver;
-  letter-spacing: 2px;
-  font-size: 40px;
-  text-align: center;
-}
 
 .category-form {
   height: 30vh;
@@ -394,4 +420,16 @@ h1 {
 
 .field_with_errors {
   display: contents;
+}
+
+.back_one a{
+  justify-content: center;
+  font-size: 16px;
+  color:#110000;
+  text-decoration: none;
+  padding: 0.2em 0.5em;
+    /* margin: 1em 0; */
+    background: #EEEEEE;
+    border-left: solid 6px #d2d42f;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
 }
