@@ -19,10 +19,16 @@ class BanksController < ApplicationController
 
   def create
     @bank = Bank.new(bank_params)
-    if @bank.save
-      redirect_to root_path,notice: "詳細情報を登録してください。"
-    else
-      render :new
+    begin
+      if @bank.save
+        redirect_to root_path,notice: "詳細情報を登録してください。"
+      else
+        redirect_to root_path,notice: "すでに登録済みです。内容を確認してください"
+      end
+    rescue StandardError => e
+      logger.error e
+      logger.error e.backtrace.join("\n")
+      redirect_to root_path,notice: "登録できませんでした。内容を確認してください。"
     end
   end
 
