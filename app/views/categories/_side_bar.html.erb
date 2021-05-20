@@ -21,10 +21,11 @@
           <div class="create-finance text-dark">
             <%= link_to "出向先追加", new_bank_path %>
           </div>
-          <% @banks.each do |bank| %>
-            <div class="group">
-              <div class="group-name text-dark">  
-                <%= link_to bank.name, bank_contents_path(bank) %>
+          <% @all_bank.each do |bank| %>
+            <div class="side_group">
+              <div class="group-name text-dark">
+                <%= link_to(bank.name, bank_contents_path(bank), {class: "fas fa-university"}) %>
+                <span class = "edit_bank"><%= link_to("", edit_bank_path(bank), {class: "fas fa-pen-square"}) %> </span>
               </div>
             </div>
           <% end %>
@@ -34,10 +35,10 @@
           <div class="create-group text-dark">
             <%= link_to "カテゴリー作成", new_category_path %>
           </div>
-          <% @category.each do |category| %>
-            <div class="group">
+          <% @all_category.each do |category| %>
+            <div class="side_group">
               <div class="group-name text-dark">
-                <%= link_to category.subject, category_contents_index2_path(category) %>
+                <%= link_to(category.subject, category_contents_index2_path(category), {class:"fas fa-book"}) %>
               </div>
             </div>
           <% end %>

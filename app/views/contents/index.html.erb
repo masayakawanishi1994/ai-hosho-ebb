@@ -17,7 +17,7 @@
 <div class="data">
   <div class="data-display">
     <div class="category_detail">
-      <div class="group bg-info text-white">
+      <div class="group_head bg-info text-white">
           カテゴリー
       </div>
       <% @bank.categories.each do |category| %>
@@ -27,7 +27,7 @@
       <% end %>
     </div>
     <div class="content_detail">
-      <div class="group bg-info text-white">
+      <div class="group_head bg-info text-white">
           内容
       </div>
       <% @bank.contents.each do |content| %>
@@ -37,7 +37,7 @@
       <% end %>
     </div>
     <div class="content_user">
-      <div class="group bg-info text-white">
+      <div class="group_head bg-info text-white">
           担当者
       </div>
       <% @bank.contents.each do |content| %>
@@ -47,7 +47,7 @@
       <% end %>
     </div>
     <div class="content_time">
-      <div class="group bg-info text-white">
+      <div class="group_head bg-info text-white">
           登録・編集日時
       </div>
       <% @bank.contents.each do |content| %>
@@ -57,7 +57,7 @@
       <% end %>
     </div>
     <div class="content_new">
-      <div class="group bg-info text-white">
+      <div class="group_head bg-info text-white">
           登録
       </div>
       <% @bank.categories.each do |category| %>
@@ -68,7 +68,7 @@
       
     </div>
     <div class="content_edit">
-      <div class="group bg-info text-white">
+      <div class="group_head bg-info text-white">
           編集
       </div>
       <% @bank.contents.each do |content| %>
@@ -77,4 +77,5 @@
           </div>
       <% end %>
     </div>
+  </div>
 </div>

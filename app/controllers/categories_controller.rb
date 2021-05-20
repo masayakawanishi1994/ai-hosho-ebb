@@ -1,12 +1,14 @@
 class CategoriesController < ApplicationController
   def index
-    @banks = Bank.all
-    @category = Category.all#サイドバーに必要（共通）
-    @contents = Content.all
+    @all_bank = Bank.all #サイドバーに必要（共通）
+    @all_category = Category.all #サイドバーに必要（共通）
+    @all_content = Content.all #ホーム画面に必要（共通）
     @content = Content.select(:detail)
   end
 
   def new
+    @all_bank = Bank.all #サイドバーに必要（共通）
+    @all_category = Category.all #サイドバーに必要（共通）
     @category = Category.new
   end
 

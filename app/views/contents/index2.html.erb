@@ -6,7 +6,7 @@
 
   <div class="conainer">
   <div class="header-title ">
-      <%= @category_at.subject %>
+      <%= @category.subject %>
   </div>
     <% if flash[:notice] %>
       <p><%= flash[:notice] %></p>
@@ -16,48 +16,63 @@
 
 <div class="data">
   <div class="data-display">
-    <div class="category_detail">
-    <div class="group bg-info text-white">
+    <div class="bank_detail">
+    <div class="group_head bg-info text-white">
           金融機関名
       </div>
-      <% @category_at.banks.each do |bank| %>
+      <% @category.banks.each do |bank| %>
           <div class="group text-dark">
             <%=bank.name %>
           </div>
       <% end %>
     </div>
     <div class="content_detail">
-      <% @category_at.contents.each do |content| %>
+      <div class="group_head bg-info text-white">
+          内容
+      </div>
+      <% @category.contents.each do |content| %>
           <div class="group text-dark">
             <%= content.detail %>
           </div>
       <% end %>
     </div>
     <div class="content_user">
-      <% @category_at.contents.each do |content| %>
+      <div class="group_head bg-info text-white">
+          担当者
+      </div>
+      <% @category.contents.each do |content| %>
           <div class="group text-dark">
             <%= content.user.name %>
           </div>
       <% end %>
     </div>
     <div class="content_time">
-      <% @category_at.contents.each do |content| %>
+      <div class="group_head bg-info text-white">
+          登録・編集日時
+      </div>
+      <% @category.contents.each do |content| %>
           <div class="group text-dark">
             <%= l content.updated_at, format: :short %>
           </div>
       <% end %>
     </div>
     <div class="category_new">
-      <% @category_at.banks.each do |bank| %>
+      <div class="group_head bg-info text-white">
+          登録
+      </div>
+      <% @category.banks.each do |bank| %>
           <div class="group text-dark">
-            <%=link_to("登録", new_category_bank_content_path(@category_at.id ,bank.id),{class: "btn-sticky"}) %>
+            <%=link_to("", new_category_bank_content_path(@category.id ,bank.id),{class: "fas fa-briefcase"}) %>
           </div>
       <% end %>
     </div>
     <div class="category_edit">
-      <% @category_at.contents.each do |content| %>
+      <div class="group_head bg-info text-white">
+          編集
+      </div>
+      <% @category.contents.each do |content| %>
           <div class="group text-dark">
-            <%=link_to("編集", edit_bank_category_content_path(content.bank_id, content.category_id, content.id),{class: "btn-sticky2"}) %>
+            <%=link_to("", edit_bank_category_content_path(content.bank_id, content.category_id, content.id),{class: "fas fa-brush"}) %>
           </div>
       <% end %>
     </div>

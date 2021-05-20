@@ -1,35 +1,34 @@
 class ContentsController < ApplicationController
 
   def index 
-    @contents = Content.all
-    @banks = Bank.all #サイドバーに必要（共通）
-    @category = Category.all#サイドバーに必要（共通）
+    @all_content = Content.all
+    @all_bank = Bank.all #サイドバーに必要（共通）
+    @all_category = Category.all#サイドバーに必要（共通）
     @content =Content.new
-    @bank = Bank.find(params[:bank_id])#一覧表示に必要（共通）
+    @bank = Bank.find(params[:bank_id]) #一覧表示に必要（共通）
     @categories = @bank.categories.select(:subject)#一覧表示に必要（共通）
   end
 
   def index2
-    @category_at = Category.find(params[:category_id])#一覧表示に必要（共通）
-    @banks = Bank.all #サイドバーに必要（共通）
-    @category = Category.all#サイドバーに必要（共通）
+    @category = Category.find(params[:category_id])#一覧表示に必要（共通）
+    @all_bank = Bank.all #サイドバーに必要（共通）
+    @all_category = Category.all#サイドバーに必要（共通）
     @content =Content.new
-    banks = Bank.all
   end
 
   def new
     @content = Content.new
-    @banks = Bank.all #サイドバーに必要（共通）
-    @category = Category.all#サイドバーに必要（共通）
+    @all_bank = Bank.all #サイドバーに必要（共通）
+    @all_category = Category.all #サイドバーに必要（共通）
     @bank = Bank.find(params[:bank_id])#一覧表示に必要（共通）
     @categories = @bank.categories.select(:subject)#一覧表示に必要（共通）
-    @category_at = Category.find(params[:category_id])#登録・編集画面に必要
+    @category = Category.find(params[:category_id])#登録・編集画面に必要
   end
 
   def create
-    @banks = Bank.all #サイドバーに必要（共通）
-    @category = Category.all#サイドバーに必要（共通）
-    @category_at = Category.find(params[:category_id])#登録・編集画面に必要
+    @all_bank = Bank.all #サイドバーに必要（共通）
+    @all_category = Category.all #サイドバーに必要（共通）
+    @category = Category.find(params[:category_id]) #登録・編集画面に必要
     @bank = Bank.find(params[:bank_id])
     @categories = @bank.categories.select(:subject)
     @content = @bank.contents.new(content_params)
@@ -48,11 +47,11 @@ class ContentsController < ApplicationController
   end
 
   def edit
-    @banks = Bank.all #サイドバーに必要（共通）
-    @category = Category.all#サイドバーに必要（共通）
+    @all_bank = Bank.all #サイドバーに必要（共通）
+    @all_category = Category.all#サイドバーに必要（共通）
     @bank = Bank.find(params[:bank_id])#一覧表示に必要（共通）
     @categories = @bank.categories.select(:subject)#一覧表示に必要（共通）
-    @category_at = Category.find(params[:category_id])#登録・編集画面に必要
+    @category = Category.find(params[:category_id])#登録・編集画面に必要
     @content = Content.find(params[:id])
   end
 

@@ -14,10 +14,10 @@
   </div>
 </div>
 
-  <div class="content">
-    <div class="category_detail">
+  <div class="plus_content">
+    <div class="category_plus">
           <div class="group text-dark">
-            <%= @category_at.subject %>  
+            <%= @category.subject %>  
             <%= form_with model: @content, url: bank_category_content_path, class: 'form', local: true do |f| %>
               <div class="form-input text-dark"> 
                 <%= f.text_field :detail, class: 'form-message', autofocus: true %>

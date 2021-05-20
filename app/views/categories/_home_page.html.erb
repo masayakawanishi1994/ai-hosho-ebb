@@ -10,52 +10,52 @@
       <b>変更履歴</b>
 </div>
 <div class = "data">
-  <div class="home">  
-      <div class="home-bank">
-        <div class="group bg-info text-white">
+  <div class="home_data-display">  
+      <div class="bank_detail">
+        <div class="group_head bg-info text-white">
             金融機関名
         </div>
-        <% @contents.each do |content| %>
+        <% @all_content.each do |content| %>
             <div class="group text-dark" >
               <%=content.bank.name %>
             </div>
         <% end %>
       </div>
-      <div class="home-category">
-        <div class="group bg-info text-white">
+      <div class="category_detail">
+        <div class="group_head bg-info text-white">
           カテゴリー
         </div>
-        <% @contents.each do |content| %>
+        <% @all_content.each do |content| %>
             <div class="group text-dark">
               <%=content.category.subject %>
             </div>
         <% end %>
       </div>
-      <div class="home-content">
-        <div class="group bg-info text-white">
+      <div class="content_detail">
+        <div class="group_head bg-info text-white">
           内容
         </div>
-        <% @contents.each do |content| %>
+        <% @all_content.each do |content| %>
             <div class="group text-dark">
               <%= content.detail %>
             </div>
         <% end %>
       </div>
-      <div class="home-user">
-        <div class="group bg-info text-white">
+      <div class="content_user">
+        <div class="group_head bg-info text-white">
             担当者
         </div>
-        <% @contents.each do |content| %>
+        <% @all_content.each do |content| %>
             <div class="group text-dark">
               <%= content.user.name %>
             </div>
         <% end %>
       </div>
-      <div class="home-date">
-        <div class="group bg-info text-white">
-            内容
+      <div class="content_time">
+        <div class="group_head bg-info text-white">
+            変更日時
         </div>
-          <% @contents.each do |content| %>
+          <% @all_content.each do |content| %>
             <div class="group text-dark">
               <%= l content.updated_at, format: :short %>
             </div>

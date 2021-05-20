@@ -14,10 +14,10 @@
   </div>
 </div>
 
-  <div class="content">
-    <div class="category_detail">
+<div class="plus_content">
+    <div class="category_plus">
           <div class="group text-dark">
-            <%= @category_at.subject %>
+            <%= @category.subject %>
             <%= form_with model: @content, url: bank_category_contents_path, class: 'form', local: true do |f| %>
               <div class="form-input text-dark"> 
                 <%= f.text_field :detail, class: 'form-message', placeholder: '最新情報を登録' %>
@@ -26,10 +26,10 @@
             <% end %>
           </div>
     </div>
-  </div>
-  <ul>
+</div>
+  <%# <ul>
   <% # errorsに入っているエラー内容を出力する %>
-  <% @content.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-  </ul>
+  <%# <% @content.errors.full_messages.each do |message| %> 
+    <%# <li><%= message</li> %> 
+  <%# <% end %> 
+  <%# </ul> %> 

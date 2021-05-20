@@ -7,79 +7,109 @@
 .wrapper {
   display: flex;
 }
+
 b.back {
   display: flex;
   margin: 0 0 0 auto;
 }
 
+.plus_content{
+  height: 100vh;
+  background-color: #EEEEEE;
+  display: flex;
+  justify-content: center;
+}
+.category_plus{
+  border-radius: 10px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
+  width: auto;
+  height: 5%;
+  background-color: #FFFFEE	;
+}
+
 .data{
+  height:100vh;
   background-color: #EEEEEE;
   display: flex;
   justify-content: center;
 }
 .data-display {
-  height: 100vh;
-  padding: 46px 40px 0;
+  height: auto;
+  padding: 40px 0;
+  border-radius: 10px;
   overflow: scroll;
   justify-content: center;
   display: flex;
 }
+.bank_detail{
+  height: 5%;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
+  width: auto;
+  background-color: #FFFFEE	;
+}
 .category_detail{
+  height: 5%;
   border-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
   width: auto;
   background-color: #FFFFEE	;
 }
 .content_detail{
+  height: 5%;
   border-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
   width: auto;
   background-color: #FFFFEE	;
 }
 .content_user{
+  height: 5%;
   border-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
   width: auto;
   background-color: #FFFFEE	;
 }
 .content_time{
+  height: 5%;
   border-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
   width: auto;
   background-color: #FFFFEE	;
 }
 .content_new{
+  height: 5%;
   border-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
   width: auto;
   background-color: #FFFFEE	;
 }
 .content_edit{
+  height: 5%;
   border-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
   width: auto;
   background-color: #FFFFEE	;
 }
 .category_new{
+  height: 5%;
   border-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
   width: auto;
   background-color: #FFFFEE	;
-  color: #000033;
 }
 .category_edit{
+  height: 5%;
   border-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
   width: auto;
   background-color: #FFFFEE	;
-  color: #000033;
 }
 .group{
   padding: 0.25em 0.5em;
   font-size: 24px;
   border: 1px solid #ddd;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .form-input{
