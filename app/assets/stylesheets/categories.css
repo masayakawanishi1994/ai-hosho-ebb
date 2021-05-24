@@ -318,10 +318,15 @@ p{
 }
 
 /* 新規カテゴリー作成ページ */
+.add_category{
+  background-color: #EEEEEE;
+  height: 100vh;
+  padding: 5% 5%;
 
+}
 .category-form {
-  height: 30vh;
-  margin:5% 5%;
+  font-size: 24px;
+  background-color: #EEEEEE;
     position: relative;
     padding: 0.5em 1.5em;
     border-top: solid 2px black;
@@ -348,23 +353,18 @@ p{
   text-align: center;
 }
 .category-form__label {
-  display: block;
+  display: flex;
   line-height: 50px;
-  font-weight: bold;
   text-align: center;
-}
-.category-form__input {
-  float: left;
-  width: 100%;
-  line-height: 30px;
   padding: 10px 15px;
-  box-sizing: border-box;
+  margin-left: 35%;
 }
+
 .category-form__action-btn {
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 20px;
-  width: 20%;
-  padding: 0.5em 1em;
+  width: 15%;
+  padding: 0.4em 1em;
   text-decoration: none;
   background: #668ad8;/*ボタン色*/
   color: white;
@@ -394,21 +394,36 @@ p{
   clear: both;
   display: block;
 }
-.category-form__field_side {
-  float: left;
-  width: 20%;
-  padding-right: 20px;
-  box-sizing: border-box;
-}
 
 .category-form__field_box {
-  float: left;
+  display: flex;
+  justify-content: center;
   margin:0 20px;
-  width:70%;
+  width:100%;
 }
 
 .field_with_errors {
   display: contents;
+}
+
+.sample_info{
+    height: auto;
+    border-radius: 10px;
+    overflow: scroll;
+    justify-content: center;
+    display: flex;
+}
+.number_sample{
+  width: 30%;
+    overflow: scroll;
+    background-color: #FFFFEE;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px 0 rgb(0 0 0 / 10%);
+    padding: 0.25em 0.5em;
+    font-size: 24px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
 }
 .back_one{
   margin-top: 5%;

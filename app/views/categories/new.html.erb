@@ -5,28 +5,29 @@
   </div>
 
   <div class="conainer">
-  <div class="header-title">
-      <%= "カテゴリー追加" %>
-  </div>
+    <div class="header-title">
+        <%= "カテゴリー追加" %>
+    </div>
     <% if flash[:notice] %>
       <p><%= flash[:notice] %></p>
     <% end %>
   </div>
 </div>
+<div class="add_category">
   <div class='category-form'>
     <%=form_with model: @category, local: true do |f|%>
       <div class='category-form__field'>
-        <div class='category-form__field_side'>
-          <%= f.label :カテゴリー, class: 'category-form__label'%>
+        <div class='category-form__label text-dark'>
+          <%= f.label :カテゴリー, class: 'fas fa-plus-circle'%>
         </div>
-        <div class='category-form__field_box'>
-          <%= f.text_field :subject, class: 'category-form__input', placeholder: '残高、商品名など'%>
+        <div class ="category-form__field_box text-dark" >
+          <%= f.text_field :subject, placeholder: '残高、商品名など'%>
         </div>
-        <div class='category-form__field_side'>
-          <%= f.label :並びかえ要素, class: 'category-form__label'%>
+        <div class='category-form__label text-dark'>
+          <%= f.label :並びかえ指標, class: 'fas fa-plus-circle'%>
         </div>
-        <div class='category-form__field_box'>
-          <%= f.number_field :number, class: 'category-form__input', placeholder: '並び替えの指標数値'%>
+        <div class="category-form__field_box text-dark">
+          <%= f.number_field :number, placeholder: '並び替えの指標数値'%>
         </div>
         <div class='category-form__field_box'>
           <%= f.collection_check_boxes(:bank_ids, Bank.all, :id, :name) do |b| %>
@@ -38,7 +39,34 @@
         <%= f.submit "作成" ,class: 'category-form__action-btn' ,data:{ confirm: "内容に間違いはありませんか？"} %>
       </div>
     <% end %>
+  <div class="subtitle text-dark">
+      <b>参考</b>
+  </div>
+    <div class="sample_info">
+      <div class="bank_detail">
+        <div class="group_head bg-info text-white">
+            カテゴリー
+        </div>
+        <% @all_category.each do |category| %>
+            <div class="group text-dark" >
+              <%= category.subject %>
+            </div>
+        <% end %>
+      </div>
+      <div class="category_detail">
+        <div class="group_head bg-info text-white">
+          指標値
+        </div>
+        <% @all_category.each do |category| %>
+            <div class="group text-dark">
+              <%= category.number %>
+            </div>
+        <% end %>
+      </div>
+  </div>
+
     <div class = "back_one">
       <%= link_to "ホームへ戻る", root_path, class: 'btn'%>
     </div>
   </div>
+</div>
