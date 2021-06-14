@@ -1,0 +1,68 @@
+
+
+
+<div class="wrapper">
+  <div class="side-bar">
+    <%# <%= render "categories/side_bar" %>
+  </div>
+  <div class="conainer">
+  <div class="header-title">
+      <%= "ユーザー情報一覧" %>
+  </div>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+</div>
+<div class="data">
+  <div class="data-display bbb">
+    <div class="category_detail">
+      <div class="group_head bg-info text-white">
+          ユーザー名
+      </div>
+      <% @users.each do |user| %>
+          <div class="group text-dark">
+            <%=user.name %>
+          </div>
+      <% end %>
+    </div>
+    <div class="category_detail">
+      <div class="group_head bg-info text-white">
+          メールアドレス
+      </div>
+      <% @users.each do |user| %>
+          <div class="group text-dark">
+            <%=user.email %>
+          </div>
+      <% end %>
+    </div>
+    <div class="category_detail">
+      <div class="group_head bg-info text-white">
+          担当金融機関
+      </div>
+      <% @users.each do |user| %>
+          <div class="group text-dark">
+            <%=user.officer %>
+          </div>
+      <% end %>
+    </div>
+    <div class="content_edit">
+      <div class="group_head bg-info text-white">
+          編集
+      </div>
+      <% @users.each do |user| %>
+          <div class="group text-dark">
+            <%=link_to("", edit_user_path(user),{class: "fas fa-brush"}) %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <div class = "back_one aaa">
+      <span class="delete_one ttt">
+      </span>
+      <%= link_to "ホームへ戻る", root_path, class: 'btn ttt'%>
+      <span class="back_two ttt">
+      <%= link_to("戻る", :back, {class: 'btn'}) %>
+      </span>
+    </div>
+</div>

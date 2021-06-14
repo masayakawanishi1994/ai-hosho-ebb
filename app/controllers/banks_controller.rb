@@ -1,19 +1,31 @@
 class BanksController < ApplicationController
   def edit
+    @all_bank = Bank.all #サイドバーに必要（共通）
+    @all_category = Category.all #サイドバーに必要（共通）
     @bank = Bank.find(params[:id])
   end
 
   def update
+    @all_bank = Bank.all #サイドバーに必要（共通）
+    @all_category = Category.all #サイドバーに必要（共通）
     @bank = Bank.find(params[:id])
-    if @bank.update(bank_params)
-      redirect_to root_path
-    else
-      render :edit
+    begin
+      if @bank.update(bank_params)
+       redirect_to root_path,notice: "更新しました。"
+      else
+      render :edit,notice: "内容を確認してください。"
+      end
+    rescue  StandardError => e
+      logger.error e
+      logger.error e.backtrace.join("\n")
+      redirect_to root_path,notice: "更新できませんでした。内容を確認してください。"
     end
   end
 
 
   def new
+    @all_bank = Bank.all #サイドバーに必要（共通）
+    @all_category = Category.all #サイドバーに必要（共通）
     @bank = Bank.new
   end
 
@@ -23,19 +35,28 @@ class BanksController < ApplicationController
       if @bank.save
         redirect_to root_path,notice: "詳細情報を登録してください。"
       else
-        redirect_to root_path,notice: "すでに登録済みです。内容を確認してください"
+        redirect_to new_bank_path,notice: "すでに登録済みです。内容を確認してください"
       end
     rescue StandardError => e
       logger.error e
       logger.error e.backtrace.join("\n")
-      redirect_to root_path,notice: "登録できませんでした。内容を確認してください。"
+      redirect_to new_bank_path,notice: "登録できませんでした。内容を確認してください。"
     end
   end
 
   def destroy
     @bank = Bank.find(params[:id])
-    @bank.destroy
-    redirect_to root_path
+    begin
+      if @bank.destroy
+        redirect_to root_path,notice: "削除しました。"
+      else
+        redirect_to edit_bank_path(bank),notice: "削除できませんでした。やり直してください。"
+      end
+    rescue StandardError => e
+      logger.error e
+      logger.error e.backtrace.join("\n")
+      redirect_to edit_bank_path(bank),notice: "削除できませんでした。内容を確認してください。"
+    end
   end
 
   private

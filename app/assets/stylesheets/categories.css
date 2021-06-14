@@ -24,7 +24,7 @@ header {
   position: absolute;
   height: 3px;/*線の太さ*/
   width: 25px;/*長さ*/
-  border-radius: 3px;
+  border-radius: 2px;
   background: white;
   display: block;
   content: '';
@@ -157,7 +157,7 @@ header {
 }
 
 .group_head{
-  border-radius: 10px;
+  border-radius: 2px;
   padding: 0.25em 0.5em;
   font-size: 24px;
   border: 1px solid #ddd;
@@ -168,8 +168,8 @@ header {
 .side_group{
   width: 80%;
   overflow: scroll;
-  background-color: #FFFFEE;
-  border-radius: 10px;
+  background-color: #F8F8FF;
+  border-radius: 2px;
   box-shadow: 0 10px 25px 0 rgb(0 0 0 / 10%);
   padding: 0.25em 0.5em;
   font-size: 24px;
@@ -210,9 +210,13 @@ header {
 
 .group {
   overflow: scroll;
-  background-color: #FFFFEE	;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px 0 rgba(.1, .1, .1, .1);
+  background-color: #F8F8FF	;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.25em 0.5em;
+  font-size: 24px;
 }
 
 .group-name a {
@@ -220,7 +224,7 @@ header {
   color: #110000;
 }
 .group-name{
-  background-color: #FFFFEE
+  background-color: #F8F8FF;
 }
 
 .create-finance a {
@@ -267,13 +271,14 @@ header {
   background-color: #770000;
   color: white;
   padding-top: 15px;
+  padding-right: 4%;
   text-align: center;
   font-family: serif;
 }
 
 .home_data-display {
   height: auto;
-  border-radius: 10px;
+  border-radius: 2px;
   overflow: scroll;
   justify-content: center;
   display: flex;
@@ -314,7 +319,7 @@ p{
   height: auto;
   background-color: #EEEEEE;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 /* 新規カテゴリー作成ページ */
@@ -363,13 +368,12 @@ p{
 .category-form__action-btn {
   margin-top: 25px;
   margin-bottom: 20px;
-  width: 15%;
-  padding: 0.4em 1em;
+  padding: 0.1em 1em;
   text-decoration: none;
   background: #668ad8;/*ボタン色*/
   color: white;
   border-bottom: solid 4px #627295;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .category-form__action-btn:active {
@@ -408,25 +412,13 @@ p{
 
 .sample_info{
     height: auto;
-    border-radius: 10px;
+    border-radius: 2px;
     overflow: scroll;
     justify-content: center;
     display: flex;
 }
-.number_sample{
-  width: 30%;
-    overflow: scroll;
-    background-color: #FFFFEE;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px 0 rgb(0 0 0 / 10%);
-    padding: 0.25em 0.5em;
-    font-size: 24px;
-    border: 1px solid #ddd;
-    display: flex;
-    justify-content: flex-end;
-}
+
 .back_one{
-  margin-top: 5%;
   display: flex;
   justify-content: flex-end;
 }
@@ -435,9 +427,25 @@ p{
   font-size: 16px;
   color:#110000;
   text-decoration: none;
-  padding: 0.2em 0.5em;
     /* margin: 1em 0; */
     background: #EEEEEE;
     border-left: solid 6px #d2d42f;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+.back_two{
+  padding-left: 5%;
+  display: flex;
+  justify-content: flex-end;
+}
+.back_two a{
+  border-left: solid 6px #2fd466;
+}
+
+.delete_one{
+  padding-right: 5%;
+  display: flex;
+  justify-content: flex-end;
+}
+.delete_one a{
+  border-left: solid 6px #d42f2f;
 }

@@ -1,9 +1,7 @@
 <div class="wrapper">
-
   <div class="side-bar">
     <%= render "categories/side_bar" %>
   </div>
-
   <div class="conainer">
   <div class="header-title">
       <%= @bank.name %>
@@ -13,23 +11,26 @@
     <% end %>
   </div>
 </div>
-
-<div class="plus_content">
-    <div class="category_plus">
-          <div class="group text-dark">
-            <%= @category.subject %>
-            <%= form_with model: @content, url: bank_category_contents_path, class: 'form', local: true do |f| %>
-              <div class="form-input text-dark"> 
-                <%= f.text_field :detail, class: 'form-message', placeholder: '最新情報を登録' %>
-                <%= f.submit '登録', class: 'form-submit',data:{ confirm: "内容に間違いはありませんか？"} %>
-              </div> 
-            <% end %>
-          </div>
+<div class="add_content">
+  <div class="content-form">
+    <div class="content-form__label text-dark">
+      <i class="fas fa-plus-circle">
+      <%= @category.subject %>
+      </i>
     </div>
+    <%= form_with model: @content, url: bank_category_contents_path, class: 'form', local: true do |f| %>
+      <div class="content-form__field_box text-dark"> 
+        <%= f.text_field :detail,class: 'box', placeholder: '最新情報を入力', autofocus: true %>
+      </div>
+      <div class='content-form__field_end'>
+        <%= f.submit '登録', class: 'category-form__action-btn',data:{ confirm: "内容に間違いはありませんか？"} %>
+      </div> 
+    <% end %>
+    <div class = "back_one">
+      <%= link_to "ホームへ戻る", root_path, class: 'btn'%>
+      <span class="back_two">
+      <%= link_to("戻る", :back, {class: 'btn'}) %>
+      </span>
+    </div>
+  </div>
 </div>
-  <%# <ul>
-  <% # errorsに入っているエラー内容を出力する %>
-  <%# <% @content.errors.full_messages.each do |message| %> 
-    <%# <li><%= message</li> %> 
-  <%# <% end %> 
-  <%# </ul> %> 

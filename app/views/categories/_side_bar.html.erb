@@ -19,7 +19,7 @@
 
         <div class="finances">
           <div class="create-finance text-dark">
-            <%= link_to "出向先追加", new_bank_path %>
+            <%= link_to "金融機関追加", new_bank_path %>
           </div>
           <% @all_bank.each do |bank| %>
             <div class="side_group">
@@ -39,6 +39,7 @@
             <div class="side_group">
               <div class="group-name text-dark">
                 <%= link_to(category.subject, category_contents_index2_path(category), {class:"fas fa-book"}) %>
+                <span class = "edit_bank"><%= link_to("", edit_category_path(category), {class: "fas fa-pen-square"}) %> </span>
               </div>
             </div>
           <% end %>

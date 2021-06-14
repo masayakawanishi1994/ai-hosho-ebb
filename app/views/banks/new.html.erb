@@ -1,20 +1,36 @@
-<div class='bank-form'>
-  <h1>金融機関の追加</h1>
-  <%=form_with model: @bank, local: true do |f|%>
-    <div class='bank-form__field'>
-      <div class='bank-form__field--left'>
-        <%= f.label :金融機関名, class: 'bank-form__label'%>
-      </div>
-      <div class='bank-form__field--right'>
-        <%= f.text_field :name, class: 'bank-form__input', placeholder: '○○銀行など'%>
-        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :subject) do |b| %>
-          <% b.label(class: "check_box") { b.check_box(checked: true, class: "add_margin") + b.text } %>
-        <% end %>
-      </div>
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "categories/side_bar" %>
+  </div>
+  <div class="conainer">
+    <div class="header-title">
+        <%= "金融機関追加" %>
     </div>
-    <div class='bank-form__field--center'>
-      <%= f.submit "作成" ,class: 'bank-form__action-btn',data:{ confirm: "内容に間違いはありませんか？"}%>
-    </div>
-  <% end %>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
 </div>
-
+<div class="add_bank">
+  <div class='bank-form'>
+    <%=form_with model: @bank, local: true do |f|%>
+      <div class='bank-form__field'>
+        <div class='bank-form__label text-dark'>
+          <%= f.label :金融機関名, class: 'fas fa-plus-circle'%>
+        </div>
+        <div class='bank-form__field_box text-dark'>
+          <%= f.text_field :name, placeholder: '○○銀行など'%>
+          <%= f.collection_check_boxes(:category_ids, Category.all, :id, :subject) do |b| %>
+            <% b.label(class: "check_box") { b.check_box(checked: true, class: "add_margin") + b.text } %>
+          <% end %>
+        </div>
+      </div>
+      <div class='bank-form__field_end'>
+        <%= f.submit "作成" ,class: 'bank-form__action-btn',data:{ confirm: "内容に間違いはありませんか？"}%>
+      </div>
+    <% end %>
+    <div class = "back_one">
+      <%= link_to "ホームへ戻る", root_path, class: 'btn'%>
+    </div>
+  </div>
+</div>

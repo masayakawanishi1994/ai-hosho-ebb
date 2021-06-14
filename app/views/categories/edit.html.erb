@@ -1,60 +1,43 @@
 <div class="wrapper">
   <div class="side-bar">
-    <%# <%= render "categories/side_bar" %>
+    <%= render "categories/side_bar" %>
   </div>
   <div class="conainer">
   <div class="header-title">
-      <%= "ユーザー情報の変更・削除" %>
+      <%= "カテゴリー変更・削除" %>
   </div>
     <% if flash[:notice] %>
       <p><%= flash[:notice] %></p>
     <% end %>
   </div>
 </div>
-<div class="add_user">
+<div class="add_content">
   <div class="content-form">
     <div class="content-form__label text-dark">
       <i class="fas fa-plus-circle">
-        <%= "名前" %>
+      <%= "カテゴリー" %>
       </i>
     </div>
-  <%= form_with model: current_user,class: 'form', local: true do |f|%>
-      <div class="content-form__field_box text-dark">
-        <%= f.text_field :name, class: 'box', autofocus: true %>
+    <%= form_with model: @category, class: 'form', local: true do |f|%>
+      <div class="content-form__field_box text-dark"> 
+        <%= f.text_field :detail, class: 'box', autofocus: true %>
       </div>
       <div class="content-form__label text-dark">
         <i class="fas fa-plus-circle">
-          <%= "担当金融機関" %>
+          <%= "並び替え数値" %>
         </i>
-      </div>
+    </div>
       <div class="content-form__field_box text-dark"> 
-        <%= f.text_field :officer, class: 'box', autofocus: true %>
+        <%= f.number_field :number, class: 'box', autofocus: true %>
       </div>
-      <div class="content-form__label text-dark">
-        <i class="fas fa-plus-circle">
-          <%= "メールアドレス" %>
-        </i>
-      </div>
-      <div class="content-form__field_box text-dark"> 
-        <%= f.email_field :email, class: 'box', autofocus: true %>
-      </div>
-      <% if current_user.admin? %>
-        <div class="content-form__label text-dark">
-          <i class="fas fa-plus-circle">
-            <%= "権限" %>
-         </i>
-       </div>
-       <div class="content-form__field_box text-dark"> 
-          <%= f.number_field :admin, class: 'box', autofocus: true %>
-        </div>
-      <% end %>
       <div class='content-form__field_end'>
         <%= f.submit '変更', class: 'category-form__action-btn', data:{ confirm: "内容に間違いはありませんか？", cancel: "やめる", commit: '登録', title: 'Check'} %>
       </div> 
     <% end %>
+    
     <div class = "back_one">
       <span class="delete_one">
-        <%= link_to "ユーザー一覧", users_path, class: 'btn'%>
+        <%= link_to "カテゴリー削除", category_path, method: :delete, class: 'fas fa-trash-alt btn', data:{ confirm: "削除してよろしいでしょうか？", cancel: "やめる", commit: '登録', title: 'Check'}%>
       </span>
       <%= link_to "ホームへ戻る", root_path, class: 'btn'%>
       <span class="back_two">

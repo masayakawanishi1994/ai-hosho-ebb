@@ -6,10 +6,16 @@ h1 {
   font-size: 40px;
   text-align: center;
 }
+.add_bank{
+  background-color: #EEEEEE;
+  height: 100vh;
+  padding: 5% 5%;
+
+}
 
 .bank-form {
-  height: 30vh;
-  margin:10% 10%;
+  font-size: 24px;
+  background-color: #EEEEEE;
     position: relative;
     padding: 0.5em 1.5em;
     border-top: solid 2px black;
@@ -37,28 +43,22 @@ h1 {
   text-align: center;
 }
 .bank-form__label {
-  display: block;
+  display: flex;
   line-height: 50px;
-  font-weight: bold;
   text-align: center;
-}
-.bank-form__input {
-  float: left;
-  width: 100%;
-  line-height: 30px;
   padding: 10px 15px;
-  box-sizing: border-box;
+  margin-left: 35%;
 }
 .bank-form__action-btn {
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 20px;
-  width: 20%;
-  padding: 0.5em 1em;
+  width: 15%;
+  padding: 0.4em 1em;
   text-decoration: none;
   background: #668ad8;/*ボタン色*/
   color: white;
   border-bottom: solid 4px #627295;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .bank-form__action-btn:active {
@@ -68,7 +68,7 @@ h1 {
 }
 
 
-.bank-form__field--center {
+.bank-form__field_end {
   width:100%;
   display: flex;
   justify-content: center;
@@ -83,19 +83,12 @@ h1 {
   clear: both;
   display: block;
 }
-.bank-form__field--left {
-  float: left;
-  width: 20%;
-  padding-right: 20px;
-  box-sizing: border-box;
-}
-
-.bank-form__field--right {
-  float: left;
+.bank-form__field_box {
+  display: flex;
+  justify-content: center;
   margin:0 20px;
-  width:70%;
+  width:100%;
 }
-
 .field_with_errors {
   display: contents;
 }
@@ -112,7 +105,7 @@ h1 {
   padding: 60px;
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 .account-page .account-page__inner .account-page__inner--left, .account-page .account-page__inner .account-page__inner--right {
   float: left;
@@ -229,7 +222,7 @@ h1 {
     /* margin: 1em 0; */
     background: #f4f4f4;
     border-left: solid 6px red;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 1%);
     text-align: center;
 }
 

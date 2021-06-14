@@ -1,38 +1,47 @@
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    
-    <%- flash.each do |name, msg| -%>
-     <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-    <%- end -%>
-    <div class='account-page__inner--left account-page__header'>
-      <h2>Log in</h2>
-      <div class="sign-up">
-          <%= link_to "アカウント作成", new_registration_path(resource_name) %>
-      </div>
+<div class="wrapper">
+  <div class="side-bar">
+    <%# <%= render "categories/side_bar" %>
+  </div>
+  <div class="conainer">
+    <div class="header-title">
+      <%= "ログイン" %>
     </div>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :email%>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email, autofocus: true%>
-          </div>
-          <div class='field'>
-            <div class='field-label'>
-              <%= f.label :password%>
-              <i>(英数字6文字以上)</i>
-            </div>
-            <div class='field-input'>
-              <%= f.password_field :password, autocomplete: "off"%>
-            </div>
-          </div>
-          <div class='actions'>
-            <%= f.submit "Log in", class: 'btn'%>
-          </div>
-        </div>
-      <% end %>
+    <%- flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+    <%- end -%>
+  </div>
+</div>
+<div class="add_user">
+  <div class="content-form">
+    <%= form_with model: resource,class: 'form',as: resource_name, url: session_path(resource_name), local: true do |f|%>
+      <div class="content-form__label text-dark">
+        <i class="fas fa-plus-circle">
+          <%= "メールアドレス" %>
+        </i>
+      </div>
+      <div class="content-form__field_box text-dark"> 
+        <%= f.email_field :email, class: 'box', autofocus: true %>
+      </div>
+      <div class="content-form__label text-dark">
+        <i class="fas fa-plus-circle">
+          <%= "パスワード" %>
+        </i>
+      </div>
+      <div class="content-form__field_box text-dark"> 
+        <%= f.password_field :password, class: 'box', autocomplete: "off"%>
+      </div>
+      <div class='content-form__field_end'>
+        <%= f.submit 'ログイン', class: 'category-form__action-btn' %>
+      </div> 
+    <% end %>
+    <div class = "back_one">
+      <span class="delete_one">
+        <%= link_to "アカウント作成", new_registration_path(resource_name), class:'btn' %>
+      </span>
+      <%= link_to "ホームへ戻る", root_path, class: 'btn'%>
+      <span class="back_two">
+      <%= link_to("戻る", :back, {class: 'btn'}) %>
+      </span>
     </div>
   </div>
 </div>

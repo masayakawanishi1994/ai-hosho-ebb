@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   rescue_from ActionController::InvalidAuthenticityToken do |exception|
-    sign_out_user # ユーザーのcookieを削除するメソッドの例
+    redirect_to user_session_path
+    # sign_out_user # ユーザーのcookieを削除するメソッドの例
   end
 
  private

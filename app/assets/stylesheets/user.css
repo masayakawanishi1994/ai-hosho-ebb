@@ -29,7 +29,20 @@
     }
 }
 
-
+.add_user{
+  background-color: #EEEEEE;
+  height: 100vh;
+  padding: 5% 5%;
+}
+.aaa{
+  padding-top: 200px;
+}
+.bbb{
+  padding-left: 200px;
+}
+.ttt{
+  height:40px;
+}
 
 .account-page .account-page__inner {
   width: 980px;
@@ -37,7 +50,7 @@
   padding: 60px;
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 .account-page .account-page__inner .account-page__inner--left, .account-page .account-page__inner .account-page__inner--right {
   float: left;
